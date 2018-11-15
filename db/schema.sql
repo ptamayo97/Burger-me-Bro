@@ -15,5 +15,9 @@ CREATE TABLE burgers (
   burger_name VARCHAR(250) NOT NULL,
   burger_ingred VARCHAR(350) NOT NULL,
   devoured BOOLEAN DEFAULT false,
+  favorite BOOLEAN DEFAULT fasle,
+
+
+  
   PRIMARY KEY (id)
 );

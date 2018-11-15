@@ -1,0 +1,20 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-4">
+
+            <img src="../public/assets/img/BurgerPic.jpeg">
+
+            <h2 id="burger_name"> {{burger_name}} </h2>
+
+            <button type="button" class="btn btn-outline-success" data-id="{{id}}" data-state="{{devour}} ">Devour</button>
+            {{#if devour}} Devour {{/if}}
+
+            <button type="button" class="btn btn-outline-success" data-id="{{id}}" data-state="{{favorite}} ">Favorite</button>
+
+            {{#if favorite}} Unsavorite {{else}} Savorite {{/if}}
+
+
+        </div>
+    </div>
+</div>
