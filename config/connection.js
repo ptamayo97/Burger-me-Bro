@@ -5,20 +5,28 @@ require('dotenv').config()
 
 
 let connection = mysql.createConnection({
+
   host: process.env.DB_host,
-  port: process.PORT || 3013,
+  port: process.env.DB_port,
   user: process.env.DB_user, 
-  password: process.env.DB_pass,
+  password: process.env.DB_password,
   database: process.env.DB_database
+
+
 })
 
 // Make connection.
 connection.connect(function(err) {
+
   if (err) {
     console.error("error connecting: " + err.stack);
     return;
   }
+
   console.log("connected as id " + connection.threadId);
+
+  
+  
 });
 
 // Export connection for our ORM to use.

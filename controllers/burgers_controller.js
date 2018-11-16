@@ -10,9 +10,11 @@ router.get("/", function(req, res) {
 
   burgers.all(function(data) {
 
+    // Must be placed in an object varible to be accessed correctly, shows up as objects otherwise
     let hbsObject = {
 
-      burgers: data
+      burgers: data,
+      style: "index"
     };
     console.log(hbsObject);
     
@@ -23,11 +25,11 @@ router.get("/", function(req, res) {
 router.post("/api/burgers", function(req, res) {
   burgers.create([
 
-    "name", "sleepy"
+    "burger_name", "burger_ingred","devoured","favorite"
 
   ],
    [
-    req.body.name, req.body.sleepy
+    req.body.burger_name, req.body.burger_ingred,
   ],
    function(result) {
 
@@ -45,7 +47,10 @@ router.put("/api/burgers/:id", function(req, res) {
 
   burgers.update({
 
-    sleepy: req.body.sleepy
+    burger_name: req.body.burger_name,
+    burger_ingred: req.body.burger_ingred,
+    devour: req.body.devour,
+    favorite: req.body.favorite
 
   }, 
   condition, function(result) {
