@@ -1,7 +1,7 @@
-let express = require("express");
+const express = require("express");
 
 // Set Handlebars.
-let exphbs = require("express-handlebars");
+const exphbs = require("express-handlebars");
 
 let PORT = process.env.PORT || 8013;
 

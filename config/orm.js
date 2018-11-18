@@ -51,9 +51,9 @@ function objToSql(ob) {
 let orm = {
 
   /** Function to select all things within the given table*/
-  all: function(tableInput, cb) {
+  all: function(burgerInput, cb) {
 
-    let queryString = "SELECT * FROM " + tableInput + ";";
+    let queryString = "SELECT * FROM " + burgerInput + ";";
 
     connection.query(queryString, function(err, result) {
 

@@ -1,57 +1,54 @@
 <div class="container">
 
-    <div class="row">
-        <div class="col-4">
+  <div class="row">
+
+    <div class="col-6">
 
 
+      <div class="form-group">
 
-            <h1>Test Page</h1>
+        <input type="text" class="form-control" id="burgerName">
 
-            <ul>
-  {{#each burgers}}
-    <h2 id="burger_name"> {{burger_name}} </h2>
-    {{!-- <img src="../public/assets/img/BurgerPic.jpeg"> --}}
+        <input type="text" class="form-control" id="burgerIngreds">
+      </div>
 
-              <button type="button" class="btn btn-outline-success" data-id="{{id}}" data-state="{{devour}} ">Devour</button>
-            {{#if devour}} Devour {{/if}}
+      <button type="button" class="btn btn-info" id="addBurger">Add Burger</button>
 
-            <button type="button" class="btn btn-outline-success" data-id="{{id}}" data-state="{{favorite}} ">Savorite</button>
-
-            <button type="button" class="btn btn-outline-success" data-id="{{id}}" data-state="{{favorite}} ">Unsavorite</button>
-
-            {{!-- {{#if favorite}} Unsavorite {{else}} Savorite {{/if}} --}}
-    
-
-  {{/each}}
-</ul>
-
-{{!-- <h2>Cats that are sleepy!</h2>
-
-<ul>
-  {{#each cats}}
-    {{#if sleepy}}
-      {{> cats/cat-block sleep=false}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a Cat</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Cat Name:</label>
-    <input type="text" id="ca" name="name">
-  </div>
-   
-  <div class="form-group">
-    <label for="sleepy">Sleepy?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-    <input type="radio" name="sleepy" value="0"> Awake
-  </div>
-  <button type="submit">Add Cat</button>
-</form> --}}
-
-{{!-- 
-        </div>
     </div>
-</div>  --}}
+  </div>
+
+  <div class="row">
+
+
+
+    <main class="burger_options">
+
+      {{#each burgers}}
+
+      <div class="col-12">
+
+        <h3 class="burger"> {{burger_name}} </h3>
+
+        <p class="burger_ingred">{{burgerIngreds}}</p>
+
+        <img src="./assets/img/BurgerPic">
+
+        <button type="button" class="devour" class="btn btn-outline-success" data-id="{{id}}" data-state="{{devoured}} ">
+          {{#if devour}} Back on the menu  {{else}} Devour {{/if}}
+        </button>
+
+
+
+        <button type="button" class="unsavorite" class="btn btn-outline-success" data-id="{{id}}" data-state="{{favorite}}">
+          {{#if favorite}} Unsavorite {{else}} Add to Savorites {{/if}}
+        </button>
+      </div>
+
+      {{/each}}
+
+    </main>
+
+
+  </div>
+
+  </div>
