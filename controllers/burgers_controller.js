@@ -21,7 +21,8 @@ router.get("/", (req, res) => {
     const hbsObject = {
 
       burgers: data,
-      style: "index"
+      style: "index",
+      jsFile:"burger"
     };
     console.log(hbsObject);
     
@@ -31,27 +32,29 @@ router.get("/", (req, res) => {
 
 
 /**Route for showing the user the favorites page where they have their burgers saved*/
-router.get('/favorites', (req, res) => {
-  orm.all('favorite', true, function (error, data) {
 
-    const hbsObject = {
+// Doesnt work correctly had to use partials
+// router.get('/favorites', (req, res) => {
+//   burgers.one('favorite', true , function (error, data) {
 
-      burgers: data,
-      style: "favorites"
-    };
+//     const hbsObject = {
 
-      if (error) {
-          return res.render('error');
-      }
+//       burgers: data,
+//       style: "favorites"
+//     };
 
-      res.render("favorites", hbsObject);
-  });
-});
+//       if (error) {
+//           return res.render('error');
+//       }
+
+//       res.render("favorites", hbsObject);
+//   });
+// });
 
 
 /**Route for show the user all burgers that have been createdd and splits them into two different categories*/
 router.get('/all', (req, res) => {
-  orm.all(function (data) {
+  burgers.all(function (data) {
 
     const hbsObject = {
 
@@ -76,9 +79,9 @@ router.post("/api/burgers",(req, res) => {
     req.body.burger_name, req.body.burger_ingred,req.body.devoured,req.body.favorite
   ],
    function(result) {
-
-    // Send back the ID of the new quote
-    res.json({ result });
+    res.json({
+      id: result.insertId
+  });
 
   });
 });
@@ -93,10 +96,33 @@ router.put("/api/burgers/:id",(req, res) => {
 
   burgers.update({
 
-    burger_name: req.body.burger_name,
-    burger_ingred: req.body.burger_ingred,
-    devour: req.body.devour,
-    favorite: req.body.favorite
+    devoured: req.body.devoured,
+
+  }, 
+  condition, function(result) {
+
+    if (result.changedRows == 0) {
+
+      // If no rows were changed, then the ID must not exist, so 404
+      return res.status(404).end();
+
+    } else {
+
+      res.status(200).end();
+    }
+  });
+});
+
+
+router.put("/api/burgers/favorite/:id",(req, res) => {
+
+  const condition = "id = " + req.params.id;
+
+  console.log("condition", condition);
+
+  burgers.update({
+
+    favorite: req.body.favorite,
 
   }, 
   condition, function(result) {

@@ -2,53 +2,64 @@
 
   <div class="row">
 
-    <div class="col-6">
+{{>burger-create}}
 
-
-      <div class="form-group">
-
-        <input type="text" class="form-control" id="burgerName">
-
-        <input type="text" class="form-control" id="burgerIngreds">
-      </div>
-
-      <button type="button" class="btn btn-info" id="addBurger">Add Burger</button>
-
-    </div>
   </div>
 
   <div class="row">
 
+    <div class="col-lg-4 offset-lg-1">
+
+      <h3>Devour Burger!</h3>
+
+      <ul>
+
+        {{#each burgers}} {{#unless devoured}} {{>burger-block devoured=true}} {{/unless}} {{/each}}
+      </ul>
+
+    </div>
 
 
-    <main class="burger_options">
+    <div class="col-lg-4">
 
-      {{#each burgers}}
+      <h3 class="devoured">Burgers Devoured!</h3>
 
-      <div class="col-12">
+      <ul>
 
-        <h3 class="burger"> {{burger_name}} </h3>
+        {{#each burgers}} 
+        
+        {{#if devoured}}
 
-        <p class="burger_ingred">{{burgerIngreds}}</p>
+        {{>burger-devoured}}
 
-        <img src="./assets/img/BurgerPic">
+        {{/if}} 
+        
+        {{/each}}
 
-        <button type="button" class="devour" class="btn btn-outline-success" data-id="{{id}}" data-state="{{devoured}} ">
-          {{#if devour}} Back on the menu  {{else}} Devour {{/if}}
-        </button>
+      </ul>
 
+    </div>
 
+  </div>
 
-        <button type="button" class="unsavorite" class="btn btn-outline-success" data-id="{{id}}" data-state="{{favorite}}">
-          {{#if favorite}} Unsavorite {{else}} Add to Savorites {{/if}}
-        </button>
-      </div>
+  <div class="row">
 
+    <div class="col-12">
+
+      <h1>Favorites</h1>
+
+      {{#each burgers}} 
+      
+      {{#if favorite}}
+
+      {{>burger-fav}}
+
+      {{/if}} 
+      
       {{/each}}
 
-    </main>
-
-
-  </div>
+    </div>
 
   </div>
+
+</div>

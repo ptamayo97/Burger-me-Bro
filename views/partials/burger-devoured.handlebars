@@ -1,0 +1,20 @@
+
+<section>
+	
+        <h3 class="burger"> {{burger_name}} </h3>
+
+        <p class="burger_ingred">{{burger_ingred}}</p>
+
+        <img src="/assets/img/BurgerPic.jpeg">
+
+
+ <button class="delete-burger btn-xs btn-outline-danger" data-id="{{this.id}}">DELETE!</button></li>
+
+<button class="savorite btn btn-outline-success" data-id="{{id}}" data-state="{{favorite}}">
+          
+{{#if favorite}} Saved in Favorites {{else}} Add to Savorites {{/if}}
+
+        </button>
+
+ </section>
+

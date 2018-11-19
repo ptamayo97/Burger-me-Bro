@@ -1,115 +1,111 @@
-$("#addBurger").on("Click",(event) => {
-    event.preventDefault();
+$(function () {
 
-    let burger_Name = $("#burgerName").val().trim()
 
-    let ingredients = $("#burgerIngreds").val().trim()
+    $(".createBurger-form").on("submit", function(event) {
+        event.preventDefault();
 
-$.ajax({
-    url:"/add",
-    method:POST,
-    data: {
-        burger_name:burger_Name,
-        burger_Ingred:ingredients
-    }
+        var newBurger = {
+            burger_name: $("#burgerName").val().trim(),
+            burger_ingred: $("#burgerIngreds").val().trim(),
+            devoured: 0,
+            favorite: 0
 
-}).then(displayBurger)
-.catch(addBurgerFail);
-});
+        };
 
-const burgerTemplate = (burgerName,ingredients, id, devour, favorite) => {
-    const burgerContainer = $('<div>').attr({
-        class: 'burger_options',
-        id: id
-    });
-    const img = $('<img>').attr('src', '/assets/img/BurgerPic.jpeg');
-    const name = $('<h3>');
-    const ingreds = $('<p>')
-    const buttonDev = $('<button>').attr({
-        'data-id': id,
-        class: 'btn btn-info',
-        'data-state': devour
-    });
-    const buttonFav = $('<button>').attr({
-        'data-id': id,
-        class: 'btn btn-info',
-        'data-state': favorite
+        $.ajax("/api/burgers", {
+                type: 'POST',
+                data: newBurger
+            })
+            .then(function() {
+                    console.log("new burger created");
+
+                    location.reload();
+                }
+            )
     });
 
+    $(".devour").on("click", function(event){
+        var id = $(this).data("id");
+        var newDevour = $(this).data("devour");
 
-    name.html(burgerName);
-    ingreds.html(ingredients)
-    buttonDev.html('Devour')
-    buttonFav.html('add to favorite');
+        var newDevourState = {
+            devoured: newDevour
+        }
 
-    burgerContainer.append(img, name, ingreds, buttonDev,buttonFav);
-    return burgerContainer;
-};
+        $.ajax("/api/burgers/" + id, {
+            type: "PUT",
+            data: newDevourState
+        })
+            .then(function(){
+                console.log("changed devoured to", newDevour);
 
+                location.reload();
+            })
+    });
 
-const displayBurger = (burger) => {
-    const name = burger.burger_name;
-    const ingred = burger.burger_Ingred
-    const id = burger.id;
-    const favorite = burger.favorite;
-    const devour = burger.devoured
-    const newBurger = burgerTemplate(name, ingred, id, devour,favorite);
-    $('#burger_options').prepend(newBurger);
-    $('input').val('').trim();
-};
+    $(".savorite").on("click", function(event){
+        const id = $(this).data("id");
+        const value = $(this).data("state");
+    
+        let condition = value === '0' ? false : true;
 
-const addBurgerFail = (response) => {
-    alert('Burger Failed');
-};
+        console.log(condition)
 
-
-// Favorite or Unfavorite burger
-const addtoFavorite = (burger) => {
-    const id = burger.id;
-    $(`#${id}`).remove();
-};
-
-const addFavoriteFail = (response) => {
-    alert('Fail adding it to Favorite');
-};
+        var newFavState = {
+            favorite: condition
+        }
 
 
-$(document).on('click', '.favorites', function() {
-    const id = $(this).attr('data-id');
-    const value = $(this).attr('data-state');
+        $.ajax("/api/burgers/favorite/" + id, {
+            type: "PUT",
+            data: newFavState
+        })
+            .then(function(){
+                console.log("changed favorite to", nowFavorite);
 
-    let condition = value === '0' ? false : true;
+                location.reload();
+            })
+    });
 
-    $.ajax({
-        url: `/${id}/${!condition}`,
-        method: 'PUT'
-    })
-    .then(addtoFavorite)
-    .catch(addFavoriteFail);
-});
+    $(".unsavorite").on("click", function(event){
+        const id = $(this).data("id");
+        const value = $(this).data("state");
+    
+        let condition = value === '1' ? true : false;
 
+        console.log(condition)
 
-// Delete burger from favorites
-
-const removeBurgerOnDelete = (burger) => {
-    const id = burger.id;
-
-    $(`.all-burgers .burger[data-id=${id}]`).remove();
-};
-
-
-const removeBurgerFailed = () => {
-    alert('Fail deleting burger');
-};
-
-$('.all-burgers .burger button').on('click', function() {
-    const id = $(this).attr('data-id');
+        var newFavState = {
+            favorite: condition
+        }
 
 
-    $.ajax({
-        url: `/delete/${id}`,
-        method: 'DELETE'
-    })
-    .then(removeBurgerOnDelete)
-    .catch(removeBurgerFailed);
+        $.ajax("/api/burgers/favorite/" + id, {
+            type: "PUT",
+            data: newFavState
+        })
+            .then(function(){
+                console.log("changed favorite to", nowFavorite);
+
+                location.reload();
+            })
+    });
+
+   
+
+    $(".delete-burger").on("click", function(event) {
+        var id = $(this).data("id");
+    
+        // Send the DELETE request.
+        $.ajax("/api/burgers/" + id, {
+          type: "DELETE"
+        }).then(
+          function() {
+            console.log("deleted burger", id);
+            // Reload the page to get the updated list
+            location.reload();
+          }
+        );
+      });
+
 });

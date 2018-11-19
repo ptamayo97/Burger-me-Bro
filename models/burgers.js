@@ -7,6 +7,11 @@ var burgerORM = {
       cb(res);
     });
   },
+  one:function(cols,val,cb) {
+    orm.one("burgers",cols,val,function(res){
+      cb(res)
+    });
+  },
   // The variables cols and vals are arrays.
   create: function(cols, vals, cb) {
     orm.create("burgers", cols, vals, function(res) {
@@ -19,7 +24,7 @@ var burgerORM = {
     });
   },
   delete: function(condition, cb) {
-    orm.delete("cats", condition, function(res) {
+    orm.delete("burgers", condition, function(res) {
       cb(res);
     });
   }

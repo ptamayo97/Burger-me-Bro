@@ -70,6 +70,26 @@ let orm = {
 
   },
 
+  one: function(burgerInput,col,val, cb) {
+
+    let queryString = "SELECT * FROM " + burgerInput + " WHERE " + col + " = " + val + ";"
+
+    console.log(queryString)
+
+    connection.query(queryString, function(err, result) {
+
+      if (err) {
+        throw err;
+
+      }
+
+      cb(result);
+
+    });
+
+
+
+  },
   /** *Here is the function to take the burger you created and add it into the database */
   create: function(table, cols, vals, cb) {
 
