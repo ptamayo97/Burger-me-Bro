@@ -1,0 +1,82 @@
+
+@import url('https://fonts.googleapis.com/css?family=Acme|Comfortaa|Fjalla+One');
+
+
+#img-header{
+    width:100%;
+    height: 200px;
+}
+
+.burgerProfile {
+    width: 200px;
+    height: 200px;
+}
+
+nav{
+    border-radius: 0px 0px 50px 50px;
+    font-family: 'Fjalla One', sans-serif;
+}
+
+button {
+    border-radius: 15px 15px 15px 15px;
+}
+
+#links{
+     margin:10px;
+}
+
+.createBurger-form {
+    background: grey;
+    border-radius: 50px 50px 35px 35px;
+    font-family: 'Acme', sans-serif;
+    opacity: 0.5;
+}
+
+input {
+    border-radius: 35px 35px 35px 35px;
+    width: 250px;
+}
+
+body {
+    font-family: 'Comfortaa', cursive;
+}
+
+
+/* CSS styling for button pulse */
+
+.pulsate-fwd:hover {
+	-webkit-animation: pulsate-fwd 0.5s ease-in-out infinite both;
+	        animation: pulsate-fwd 0.5s ease-in-out infinite both;
+}
+
+
+ @-webkit-keyframes pulsate-fwd {
+    0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+    50% {
+      -webkit-transform: scale(1.1);
+              transform: scale(1.1);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  @keyframes pulsate-fwd {
+    0% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+    50% {
+      -webkit-transform: scale(1.1);
+              transform: scale(1.1);
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+    }
+  }
+  
+  

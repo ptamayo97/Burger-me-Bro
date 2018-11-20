@@ -61,7 +61,7 @@ $(function () {
             data: newFavState
         })
             .then(function(){
-                console.log("changed favorite to", nowFavorite);
+                console.log("changed favorite to", newFavState);
 
                 location.reload();
             })
@@ -85,7 +85,7 @@ $(function () {
             data: newFavState
         })
             .then(function(){
-                console.log("changed favorite to", nowFavorite);
+                console.log("changed favorite to", newFavState);
 
                 location.reload();
             })

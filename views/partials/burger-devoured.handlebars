@@ -5,10 +5,18 @@
 
         <p class="burger_ingred">{{burger_ingred}}</p>
 
-        <img src="/assets/img/BurgerPic.jpeg">
+        <img class="img-fluid burgerProfile" src="/assets/img/BurgerPic.jpeg">
+
+{{#if favorite}} 
+
+{{!-- Nothing --}}
+
+{{else}}  
 
 
- <button class="delete-burger btn-xs btn-outline-danger" data-id="{{this.id}}">DELETE!</button></li>
+<button class="delete-burger btn-xs btn-outline-danger" data-id="{{this.id}}">DELETE!</button>
+
+{{/if}}
 
 <button class="savorite btn btn-outline-success" data-id="{{id}}" data-state="{{favorite}}">
           

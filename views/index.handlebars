@@ -1,16 +1,16 @@
 <div class="container">
 
-  <div class="row">
+
 
 {{>burger-create}}
 
-  </div>
 
+{{!-- Burger to devour section --}}
   <div class="row">
 
-    <div class="col-lg-4 offset-lg-1">
+    <div class="col-12">
 
-      <h3>Devour Burger!</h3>
+      <h3 id="devour">Devour Burgers!</h3 >
 
       <ul>
 
@@ -19,10 +19,14 @@
 
     </div>
 
+  </div>
 
-    <div class="col-lg-4">
+{{!-- Devoured Section --}}
+<div class="row">
 
-      <h3 class="devoured">Burgers Devoured!</h3>
+    <div class="col-12">
+
+      <h3 id="devoured">Burgers Devoured!</h3>
 
       <ul>
 
@@ -42,11 +46,13 @@
 
   </div>
 
+
+{{!-- Favorties Section --}}
   <div class="row">
 
     <div class="col-12">
 
-      <h1>Favorites</h1>
+      <h1 id="savorites" >Favorites</h1>
 
       {{#each burgers}} 
       

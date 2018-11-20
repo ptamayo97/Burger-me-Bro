@@ -5,12 +5,12 @@
 
         <p class="burger_ingred">{{burger_ingred}}</p>
 
-        <img src="/assets/img/BurgerPic.jpeg">
+        <img class="img-fluid burgerProfile" src="/assets/img/BurgerPic.jpeg">
 
 
  <button class="delete-burger btn-xs btn-outline-danger" data-id="{{this.id}}">DELETE!</button></li>
 
-<button type="button"class="unsavorite btn btn-outline-success" data-id="{{id}}" data-state="{{favorite}}">
+<button type="button"class="pulsate-fwd unsavorite btn-xl btn-outline-success" data-id="{{id}}" data-state="{{favorite}}">
           
 {{#if favorite}} Unsavorite {{else}} Add to Savorites {{/if}}
 
