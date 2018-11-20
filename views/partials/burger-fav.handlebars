@@ -1,19 +1,23 @@
 
-<section>
-	
+<section class="col-5 offset-1 profile">
+
+	<img class="img-fluid burgerProfile col-8 offset-3" src="/assets/img/favoriteBurgerPic.jpeg">
+
+
         <h3 class="burger"> {{burger_name}} </h3>
 
         <p class="burger_ingred">{{burger_ingred}}</p>
 
-        <img class="img-fluid burgerProfile" src="/assets/img/BurgerPic.jpeg">
 
+ <button class="delete-burger pulsate-fwd btn-xs btn-outline-danger" data-id="{{this.id}}">DELETE!</button></li>
 
- <button class="delete-burger btn-xs btn-outline-danger" data-id="{{this.id}}">DELETE!</button></li>
-
-<button type="button"class="pulsate-fwd unsavorite btn-xl btn-outline-success" data-id="{{id}}" data-state="{{favorite}}">
+<button type="button"class="unsavorite pulsate-fwd btn-xs btn-outline-success" data-id="{{id}}" data-state="{{favorite}}">
           
 {{#if favorite}} Unsavorite {{else}} Add to Savorites {{/if}}
 
         </button>
+
+    
+
 
  </section>

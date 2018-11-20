@@ -1,8 +1,22 @@
 <div class="container">
 
+<div class="row">
 
+
+<form class="createBurger-form col-12">
+
+<h3 class="sectionName">Create a Burger!</h3 >
+
+<div class="row">
 
 {{>burger-create}}
+
+</div>
+
+</form>
+
+</div>
+
 
 
 {{!-- Burger to devour section --}}
@@ -10,12 +24,13 @@
 
     <div class="col-12">
 
-      <h3 id="devour">Devour Burgers!</h3 >
+      <h3 id="devour" class="sectionName1">Devour Burgers!</h3 >
 
-      <ul>
+      <div class="row">
 
         {{#each burgers}} {{#unless devoured}} {{>burger-block devoured=true}} {{/unless}} {{/each}}
-      </ul>
+
+      </div>
 
     </div>
 
@@ -26,9 +41,9 @@
 
     <div class="col-12">
 
-      <h3 id="devoured">Burgers Devoured!</h3>
+      <h3 id="devoured" class="sectionName2">Burgers Devoured!</h3>
 
-      <ul>
+      <div class="row">
 
         {{#each burgers}} 
         
@@ -40,7 +55,7 @@
         
         {{/each}}
 
-      </ul>
+      </div>
 
     </div>
 
@@ -52,7 +67,9 @@
 
     <div class="col-12">
 
-      <h1 id="savorites" >Favorites</h1>
+      <h1 id="savorites" class="sectionName" >Savorites</h1>
+
+  <div class="row">
 
       {{#each burgers}} 
       
@@ -64,6 +81,7 @@
       
       {{/each}}
 
+</div>
     </div>
 
   </div>

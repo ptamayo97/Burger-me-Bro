@@ -1,24 +1,70 @@
 
 @import url('https://fonts.googleapis.com/css?family=Acme|Comfortaa|Fjalla+One');
 
-
+body{
+    background-color:#ffe2fd;
+}
 #img-header{
     width:100%;
     height: 200px;
 }
 
+.sectionName{
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 38px;
+    background-color:#eddd7b;
+    border-radius: 45px 45px 45px 45px;
+    box-shadow: 3px 4px 38px -5px rgba(0,0,0,0.75);
+    text-align: center;
+    margin: 10px;
+}
+
+.sectionName1 {
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 38px;
+    background-color:#befca1;
+    border-radius: 45px 45px 45px 45px;
+    box-shadow: 3px 4px 38px -5px rgba(0,0,0,0.75);
+    text-align: center;
+    margin: 10px;
+}
+
+.sectionName2{
+    font-family: 'Fjalla One', sans-serif;
+    font-size: 38px;
+    background-color:#ffb187;
+    border-radius: 45px 45px 45px 45px;
+    box-shadow: 3px 4px 38px -5px rgba(0,0,0,0.75);
+    text-align: center;
+    margin: 10px;
+}
+
 .burgerProfile {
     width: 200px;
     height: 200px;
+    border-radius: 77px 77px 77px 77px;
+
+}
+
+.profile{
+    border-radius: 32px 32px 32px 32px;
+    border: 2px solid #000000;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #c9edea;
+    box-shadow: 3px 4px 38px -5px rgba(0,0,0,0.75);
 }
 
 nav{
     border-radius: 0px 0px 50px 50px;
     font-family: 'Fjalla One', sans-serif;
+    color: #e04831;
+    box-shadow: 3px 4px 38px -8px rgba(0,0,0,0.75);
 }
 
 button {
     border-radius: 15px 15px 15px 15px;
+    box-shadow: 3px 4px 38px -8px rgba(0,0,0,0.75);
 }
 
 #links{
@@ -26,10 +72,12 @@ button {
 }
 
 .createBurger-form {
-    background: grey;
     border-radius: 50px 50px 35px 35px;
+    box-shadow: 3px 4px 38px -5px rgba(0,0,0,0.75);
     font-family: 'Acme', sans-serif;
-    opacity: 0.5;
+    color:#DC2144;
+    background-color: #c9edea;
+    margin:10px;
 }
 
 input {
@@ -40,6 +88,7 @@ input {
 body {
     font-family: 'Comfortaa', cursive;
 }
+
 
 
 /* CSS styling for button pulse */

@@ -1,28 +1,27 @@
+<section class="col-5 offset-1 profile">
 
-<section>
-	
+        <img class="img-fluid burgerProfile col-8 offset-3" src="/assets/img/devouredPic.jpeg">
+
         <h3 class="burger"> {{burger_name}} </h3>
 
         <p class="burger_ingred">{{burger_ingred}}</p>
 
-        <img class="img-fluid burgerProfile" src="/assets/img/BurgerPic.jpeg">
 
-{{#if favorite}} 
+        {{#if favorite}}
 
-{{!-- Nothing --}}
+        {{!-- Nothing --}}
 
-{{else}}  
+        {{else}}
 
 
-<button class="delete-burger btn-xs btn-outline-danger" data-id="{{this.id}}">DELETE!</button>
+        <button class="delete-burger pulsate-fwd btn-xs btn-outline-danger" data-id="{{this.id}}">DELETE!</button>
 
-{{/if}}
+        {{/if}}
 
-<button class="savorite btn btn-outline-success" data-id="{{id}}" data-state="{{favorite}}">
-          
-{{#if favorite}} Saved in Favorites {{else}} Add to Savorites {{/if}}
+        <button class="savorite pulsate-fwd btn-xs btn-outline-success" data-id="{{id}}" data-state="{{favorite}}">
+
+                {{#if favorite}} Saved in Savorites {{else}} Add to Savorites {{/if}}
 
         </button>
 
- </section>
-
+</section>
